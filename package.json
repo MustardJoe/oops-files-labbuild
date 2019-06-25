@@ -1,0 +1,25 @@
+{
+  "name": "oops-files-labbuild",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose",
+    "test:watch": "npm run test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MustardJoe/oops-files-labbuild.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MustardJoe/oops-files-labbuild/issues"
+  },
+  "homepage": "https://github.com/MustardJoe/oops-files-labbuild#readme",
+  "devDependencies": {
+    "eslint": "^6.0.1",
+    "jest": "^24.8.0"
+  }
+}
