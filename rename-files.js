@@ -22,6 +22,18 @@ const readFile = (path, callback) => {
   });
 };
 
+const readEverything = (directory, callback) => {
+  readDirectory(directory, (err, files) => {
+    files.forEach(file => {
+      readFile(`${directory}/${file}`, (err, fileContent) => {
+        if(err) return callback(err);
+        getModifiedTime(`$`)
+      }
+    })
+
+  })
+}
+
 module.exports = {
   readDirectory,
   rename,
