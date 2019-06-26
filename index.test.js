@@ -5,9 +5,8 @@ describe('test suite for file oops thing', () => {
     fs.readFile('./oops-files/63.txt', { encoding: 'utf8' }, (err, data) => {
       if(err) return console.error(err);
       
-      console.log(data);
+      expect(data).toEqual('wereBat');
     });
-    expect(data).toEqual('wereBat');
 
   });
 });
