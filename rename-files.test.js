@@ -13,6 +13,12 @@ describe('rename funcs', () => {
   });
 
   it('gets modified time', () => {
-    
-  })
+
+  });
+
+  it('gets the contents of a file', done => {
+    fs.readFile('./fixtures/0.txt', { encoding: 'utf8' }, (err, expectedContent) => {
+
+    });
+  });
 });
