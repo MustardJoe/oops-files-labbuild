@@ -5,7 +5,7 @@ const fs = require('fs');
 //want it to be easey to use, since we are writing a function that
 //duplicates an accident (and creates 100 files)
 for(let i = 0; i < 100; i++) {
-  console.log(i);
+  
   let data = '';
 
   if(i < 15) {data = 'dinosaurs';}
