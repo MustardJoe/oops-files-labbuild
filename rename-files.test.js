@@ -1,6 +1,6 @@
 const fs = require('fs');
 import { createFiles } from './file-maker';
-import { readDirectory } from './rename-files';
+import { readDirectory, renameEverything } from './rename-files';
 
 describe('rename funcs', () => {
   afterEach(done => {
@@ -21,4 +21,13 @@ describe('rename funcs', () => {
 
     });
   });
+
+  it('renames all files in a folder to content-f', done => {
+    renameEverything('./fixtures', err => {
+      expect(err).toBeFalsy();
+
+      fs.readdir('./fixtures', (err, files))
+    })
+  })
+
 });
