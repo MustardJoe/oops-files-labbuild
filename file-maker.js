@@ -18,5 +18,4 @@ for(let i = 0; i < 100; i++) {
   fs.writeFile((`./oops-files/${i}.txt`), data, (err) => {
     if(err) return console.error(err);
   });
-  
 }
