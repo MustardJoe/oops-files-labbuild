@@ -5,7 +5,7 @@ const {
   rename,
   getModifiedTime,
   readFile, 
-  renameEverything,
+  renameAll,
 } = require('./rename-files');
 
 describe('rename and related funcs tests', () => {
@@ -21,8 +21,10 @@ describe('rename and related funcs tests', () => {
     fs.readdir('./fixtures', (err, files) => {
       if(files.length === 0) done();
       let deletedSoFar = 0;
+
       files.forEach(file => {
         fs.unlink(`./fixtures/${file}`, err => {
+      
           if(err) return done(err);
           deletedSoFar += 1;
           if(deletedSoFar === files.length) done();
@@ -72,7 +74,7 @@ describe('rename and related funcs tests', () => {
   });
 
   it('renames all files in a folder to desired format', done => {
-    renameEverything('./fixtures', err => {
+    renameAll('./fixtures', err => {
       expect(err).toBeFalsy();
 
       fs.readdir('./fixtures', (err, files) => {
