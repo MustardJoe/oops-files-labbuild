@@ -1,42 +1,53 @@
 const fs = require('fs');
 
 const readDirectory = (directory, callback) => {
-  fs.readdir(directory, (err, files) => {
-    callback(err, files);
-  });
+  fs.readdir(directory, callback);
 };
 
-const rename = (path, newPath, callback);
+const rename = (path, newPath, callback) => {
+  fs.rename(path, newPath, callback);
+};
 
 
 const getModifiedTime = (path, callback) => {
   fs.stat(path, (err, stats) => {
-    if(!stats) return callback(err);
-    callback(err, stats.mtime.toISOString());
+    callback(err, stats && stats.mtimeM.toISOString());
   });
 };
 
 const readFile = (path, callback) => {
-  fs.readFile(path, { encoding: 'utf8' }, (err, file) => {
-    callback(err, file);
-  });
+  fs.readFile(path, { encoding: 'utf8' }, callback);
 };
 
-const readEverything = (directory, callback) => {
+const renameAll = (directory, callback) => {
   readDirectory(directory, (err, files) => {
+    
+    if(err) return callback(err);
+    let renamedSoFar = 0;
     files.forEach(file => {
       readFile(`${directory}/${file}`, (err, fileContent) => {
         if(err) return callback(err);
-        getModifiedTime(`$`)
-      }
-    })
+        
+        getModifiedTime(`${directory}/${file}`, (err, modifiedTime) => {
+          
+          if(err) return callback(err);
+          const number = file.split('.')[0];
+          rename(`${directory}/${file}`, `${directory}/${fileContent}-${number}-${modifiedTime}`, err => {
+            if(err) return callback(err);
+            renamedSoFar++;
+            if(renamedSoFar === files.length) callback();
+          });
+        });
+      });
+    }); 
 
-  })
-}
+  });
+};
 
 module.exports = {
   readDirectory,
   rename,
   getModifiedTime,
   readFile,
+  renameAll,
 };
