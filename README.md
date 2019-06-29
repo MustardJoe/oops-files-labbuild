@@ -1,8 +1,6 @@
 # oops-files-labbuild
 
-GOALS
-
-rename ALL files in specified directory, based on the content of the file, number in the file name, and the date that the file was last modified.
+current state - still doesn't work - need to finish up
 
 ##STEPS
 
