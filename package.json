@@ -1,11 +1,11 @@
 {
   "name": "oops-files-labbuild",
   "version": "1.0.0",
-  "description": "",
+  "description": "GOALS",
   "main": "index.js",
   "scripts": {
     "test": "jest --verbose",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch --runInBand"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,9 @@
   "homepage": "https://github.com/MustardJoe/oops-files-labbuild#readme",
   "devDependencies": {
     "eslint": "^6.0.1",
-    "jest": "^24.8.0"
-  }
+    "jest": "^24.8.0",
+    "nodemon": "^1.19.1",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {}
 }
